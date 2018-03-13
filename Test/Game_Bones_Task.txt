@@ -1,0 +1,55 @@
+from random import randint
+point_player1 = 1000
+point_player2 = 1000
+step = int(input("Введите кол-во ходов до выигрыша"))
+step2 = step
+stop = ''
+for i in range(step):
+    if step2 == step and stop == 'stop':
+        exit()
+    else:
+        if point_player1 > 0 and point_player2 > 0:
+            rate_player1 = int(input("Введите ставку первого игрока"))
+            # rate_player2 = int(input("Введите ставку второго игрока"))
+
+            player1 = int(input("Введите угадываемое число"))
+            bone_player1 = randint(1, 6)
+            bone2_player1 = randint(1, 6)
+            print("Первый кубик", bone_player1)
+            print("Второй кубик", bone2_player1)
+            total_player1 = bone_player1 + bone2_player1
+            print("Итого: ", total_player1)
+
+            # bone_player2 = randint(1,6)
+            # bone2_player2 = randint(1,6)
+            # print("Первый кубик", bone_player2)
+            # print("Первый кубик", bone2_player2)
+            # total_player2 = bone_player2 + bone2_player2
+            # print("Итого: ", total_player2)
+
+            if 1 == player1 and step2 > step:
+                print("Ты победил")
+                point_player1 = point_player1 + rate_player1
+                print("Итого очков", point_player1)
+                break
+            elif 1 == player1:
+                print("Ты красавчик")
+                point_player1 = point_player1 + rate_player1
+                print("Итого очков", point_player1)
+            else:
+                print("Ты лузер")
+                point_player1 = point_player1 - rate_player1
+                print("Итого очков", point_player1)
+        else:
+            break
+    stop = input("если хотите закончить игру напишите stop, \nесли хотите продолжить нажмите enter")
+print("Конец")
+# if total_player1 > total_player2:
+#     point_player1 = point_player1 + rate_player2
+#     point_player2 = point_player2 - rate_player2
+#     print("очки первого",point_player1)
+# elif total_player2 > total_player1:
+#     point_player2 = point_player2 + rate_player1
+#     point_player1 = point_player1 - rate_player1
+#     print("очки второго", point_player2)
+# else: print("Победила дружба")
